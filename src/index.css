@@ -1,0 +1,364 @@
+:root {
+  --primary-color: #f1f0fb;
+  --secondary-color: #d6bcfa;
+  --accent-color: #9b87f5;
+  --text-color: #1a1f2c;
+  --background-color: #ffffff;
+  --card-background: #f5f5f7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(126, 105, 171, 0.2);
+  z-index: 50;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.nav-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085")
+      center/cover;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  border-radius: 9999px;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.badge svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--accent-color);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: var(--card-background);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--secondary-color);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color);
+  transform-origin: left;
+  animation: grow 1.5s ease-out forwards;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: var(--card-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--secondary-color);
+}
+
+.timeline-item {
+  margin: 4rem 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.timeline-item.left {
+  justify-content: flex-start;
+}
+
+.timeline-item.right {
+  justify-content: flex-end;
+}
+
+.timeline-content {
+  background: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: calc(50% - 2rem);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background: var(--accent-color);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating-icon {
+  animation: float 6s ease-in-out infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .timeline::before {
+    left: 1rem;
+  }
+
+  .timeline-content {
+    width: calc(100% - 3rem);
+    margin-left: 3rem;
+  }
+
+  .timeline-dot {
+    left: 1rem;
+  }
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.certificate-card {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px);
+}
+
+.certificate-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.certificate-issuer {
+  color: var(--accent-color);
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.certificate-date {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-color);
+}
